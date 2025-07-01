@@ -34,4 +34,7 @@ Think of ELB like a **traffic police officer** at a busy intersection:
 - Keeps traffic flowing smoothly.
 
 ## 🔹 7. Diagram
-![ELB Diagram](elb_diagram.png)
+
+
+<img width="509" alt="ELB Diagram" src="https://github.com/user-attachments/assets/d085bb8a-ce43-40fc-af92-4237b5e71239" />
+<img width="505" alt="CLB" src="https://github.com/user-attachments/assets/9853f5ec-3b4e-4392-bfa1-f6d0acae8f4b" />
