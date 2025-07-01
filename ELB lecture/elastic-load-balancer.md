@@ -1,4 +1,4 @@
-# 📘 Elastic Load Balancer (ELB) – Key Concepts for Students
+# 📘 Elastic Load Balancer (ELB) – Key Concepts
 
 ## 🔹 1. What is ELB?
 Elastic Load Balancer (ELB) is a service provided by AWS that automatically distributes incoming application traffic across multiple targets (like EC2 instances, containers, or IP addresses).
