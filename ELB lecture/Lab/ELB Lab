@@ -1,0 +1,97 @@
+# Lab Guide Part 1: Launch EC2 Instances and Install Web Servers
+## ✅ Prerequisites
+- AWS account with necessary permissions
+- AWS CLI installed and configured (optional)
+- Basic knowledge of EC2 and security groups
+---
+## 🚀 Step 1: Launch EC2 Instances  🚀 ##
+
+1. Go to the AWS EC2 Console.
+2. Click **Launch Instance**.
+3. Choose **Amazon Linux 2 AMI**.
+4. Select **t2.micro** (Free Tier eligible).
+5. Configure instance details (default settings are fine).
+6. Add storage (default is fine).
+7. Add tags (optional).
+8. Configure security group:
+   - Allow **HTTP (port 80)** from anywhere.
+   - Allow **SSH (port 22)** from your IP.
+9. Launch the instance and create/select a key pair.
+10. Repeat to launch at least **2 EC2 instances**.
+
+---
+
+## 🛠️ Step 2: Install Apache Web Server on Each EC2 🛠️ ## 
+
+1. Connect to each EC2 instance using SSH:
+   ```bash
+   ssh -i your-key.pem ec2-user@<public-ip>
+   ```
+2. Install Apache and create a sample web page:
+#sudo yum update -y
+#sudo yum install httpd -y
+#sudo systemctl start httpd
+#sudo systemctl enable httpd
+#echo \"<h1>Welcome to Web Server 1</h1>\" | sudo tee /var/www/html/index.html
+
+3.Repeat the same steps on the second instance, changing the HTML content to:
+#echo \"<h1>Welcome to Web Server 2</h1>\" | sudo tee /var/www/html/index.html
+
+4.Open the public IP of each instance in a browser to verify the web page
+
+````````````````````````````````````````````````````````````````````````````````````````````````
+# Lab Guide Part 2: Configure Load Balancer and Test Setup
+## 🎯 Step 3: Create a Target Group 🎯## 
+
+1. Go to the **EC2 Dashboard**.
+2. In the left menu, click **Target Groups** under "Load Balancing".
+3. Click **Create target group**.
+4. Choose **Instances** as the target type.
+5. Name your target group (e.g., `web-target-group`).
+6. Protocol: **HTTP**, Port: **80**.
+7. VPC: Select the same VPC as your EC2 instances.
+8. Health checks:
+   - Protocol: **HTTP**
+   - Path: `/`
+9. Click **Next**.
+10. Register your EC2 instances to the target group.
+11. Click **Create target group**.
+
+---
+## ⚙️ Step 4: Create an Application Load Balancer (ALB)
+
+1. Go to **Load Balancers** in the EC2 Dashboard.
+2. Click **Create Load Balancer** > **Application Load Balancer**.
+3. Name your ALB (e.g., `web-alb`).
+4. Scheme: **Internet-facing**.
+5. IP address type: **IPv4**.
+6. Select at least **2 Availability Zones** and subnets.
+7. Under **Listeners**, keep default: HTTP on port 80.
+8. Click **Next: Configure Security Settings** (skip SSL for now).
+9. Select an existing security group or create a new one:
+   - Allow **HTTP (port 80)** from anywhere.
+10. Under **Routing**, choose the target group you created earlier.
+11. Click **Create Load Balancer**.
+
+---
+## 🔍 Step 5: Test the Load Balancer
+
+1. Go to the **Load Balancers** section.
+2. Copy the **DNS name** of your ALB.
+3. Paste it into your browser.
+4. Refresh the page multiple times — you should see responses from both EC2 instances (e.g., "Welcome to Web Server 1" and "Welcome to Web Server 2").
+
+---
+
+## 🧹 Step 6: Clean Up Resources
+To avoid charges, delete the following:
+- Load Balancer
+- Target Group
+- EC2 Instances
+- Security Groups (if not reused)
+- Key Pairs (optional)
+
+---
+✅ Congratulations! You've successfully set up and tested an Elastic Load Balancer on AWS.
+
+
