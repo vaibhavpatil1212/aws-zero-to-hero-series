@@ -1,0 +1,22 @@
+And now, I’m bringing that same conversation straight to all of you right here in the AKVAverse.
+
+Amazon EC2 (Elastic Compute Cloud): EC2 is like your cloud computer.
+Need to run an app or crunch some data? Spin up a virtual server and scale it up or down. It’s your starting line for most projects in Cloud.
+Amazon S3 (Simple Storage Service): S3 is your robust, scalable storage solution on AWS. Stash files, images, backups, or host a static website. It's cost-effective, ultra-durable, and seamlessly integrates with nearly all AWS services.
+AWS IAM (Identity and Access Management): IAM is your AWS bouncer it decides who gets in, what they touch, and what stays locked.
+Define users, roles, and policies to grant precise permissions and avoid overexposure. It’s the security backbone that keeps your AWS environment safe and in control.
+Amazon CloudWatch: CloudWatch is your system’s lookout tower watching logs, metrics, and app health 24/7.
+It sends alerts when things go sideways, so you can fix issues before users even notice. From EC2 to Lambda, it brings observability to your entire AWS stack.
+AWS Lambda: Lambda lets you run code without provisioning or managing servers.
+It’s ideal for automating tasks like file processing, API calls, or backend workflows. It runs only when triggered and scales automatically saving both time and cost.
+Amazon ECS (Elastic Container Service): ECS lets you run and scale Docker containers without the complexity of Kubernetes.
+Define tasks, deploy services, and let ECS handle scheduling, load balancing, and scaling. It’s perfect for small teams simple, powerful, and tightly integrated with AWS.
+Elastic Load Balancer (ELB): Your cloud traffic cop it distributes incoming traffic across multiple servers to keep your app stable and responsive.
+Whether it’s scaling up during peak hours or routing around unhealthy instances, ELB keeps things running smooth and smart.
+Amazon EKS (Elastic Kubernetes Service): EKS brings full Kubernetes power to AWS without managing control planes.
+It’s built for complex, large-scale container apps with full K8s flexibility.
+Great for teams that know Kubernetes and want to scale securely on the cloud.
+Amazon RDS (Relational Database Service): RDS gives you managed databases like MySQL or PostgreSQL without the server headaches.
+It handles setup, backups, patching, and scaling automatically. You focus on building apps, while RDS keeps your data safe and running
+Amazon VPC (Virtual Private Cloud): VPC is your own private network within AWS.
+It lets you control traffic, secure your resources, and isolate environments. From EC2 to RDS, ECS to Lambda almost everything runs inside your VPC.
