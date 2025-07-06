@@ -1,0 +1,100 @@
+# 🚀 AWS Auto Scaling Group - Simple Lab (Single File)
+
+This lab walks you through creating a simple Auto Scaling Group (ASG) using an EC2 launch template in AWS.
+
+---
+
+## 🧪 Objective
+
+- Create a Launch Template
+- Set up an Auto Scaling Group (ASG)
+- (Optional) Attach a Load Balancer
+- Test Auto Scaling behavior
+
+---
+
+## ✅ Pre-requisites
+
+- AWS Account
+- IAM permissions for EC2, Auto Scaling
+- Default VPC with at least 2 subnets
+- Key Pair for SSH (already created)
+
+---
+
+## 🔹 Step 1: Create Launch Template
+
+1. Go to **EC2 Dashboard** → **Launch Templates**
+2. Click **Create launch template**
+3. Fill in:
+   - **Name**: `my-asg-template`
+   - **AMI**: Amazon Linux 2
+   - **Instance Type**: `t2.micro`
+   - **Key Pair**: Select existing one
+4. Add **User data**:
+```bash
+#!/bin/bash
+echo "Hello from Auto Scaling Group" > /var/www/html/index.html
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+```
+5. Click **Create launch template**
+
+---
+
+## 🔹 Step 2: Create Auto Scaling Group
+
+1. Go to **EC2 Dashboard** → **Auto Scaling Groups**
+2. Click **Create Auto Scaling group**
+3. Provide:
+   - **Name**: `my-asg-demo`
+   - **Launch Template**: Select one created earlier
+4. Choose **VPC** and **at least 2 subnets**
+5. Set:
+   - Desired capacity: `1`
+   - Min: `1`
+   - Max: `2`
+6. Scaling policy: **Target Tracking**
+   - Metric: `Average CPU`
+   - Target: `50%`
+7. Click **Create ASG**
+
+---
+
+## 🔹 Step 3: (Optional) Attach Load Balancer
+
+- You can attach an existing Application Load Balancer
+- Make sure port 80 is open and user data includes HTTP server
+
+---
+
+## 🔹 Step 4: Test Auto Healing
+
+1. Go to **EC2 Instances**
+2. Terminate one instance manually
+3. ✅ ASG will auto-launch another instance to maintain desired count
+
+---
+
+## 🔧 Simulate CPU Load to Test Scaling
+
+SSH into instance and run:
+```bash
+sudo yum install -y stress
+stress --cpu 2 --timeout 300
+```
+
+---
+
+## 📎 Sample User Data
+
+```bash
+#!/bin/bash
+echo "Hello from Auto Scaling Group" > /var/www/html/index.html
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+```
+
+---
