@@ -1,0 +1,143 @@
+# 🐑 AWS Lambda - S3 Image Resize Example
+
+This project demonstrates how to use **AWS Lambda** to automatically resize images when they are uploaded to an **S3 bucket**.
+
+---
+
+## 📌 What You’ll Learn
+
+✅ How to create a Lambda function  
+✅ How to connect S3 as a trigger  
+✅ How to resize images using Python & PIL (Pillow)  
+✅ How to test and verify the flow
+
+---
+
+## 🗂️ Architecture
+
+```
+[Upload Image to S3] → [S3 Event] → [Lambda Function] → [Save Resized Image to S3]
+```
+
+---
+
+## 🛠️ Prerequisites
+
+- AWS Account  
+- IAM permissions to create S3, Lambda, and IAM roles  
+- Basic knowledge of Python
+
+---
+
+## 🚀 Steps to Implement
+
+### 1️⃣ Create an S3 Bucket
+
+1. Go to **AWS S3 Console**
+2. Create a bucket, e.g., `my-image-upload-bucket`
+3. Create another bucket (optional) for resized images, e.g., `my-resized-images-bucket`
+
+---
+
+### 2️⃣ Create IAM Role for Lambda
+
+1. Go to **IAM Console**
+2. Create a role with:
+   - **AWSLambdaBasicExecutionRole**
+   - **AmazonS3FullAccess**
+3. Attach this role to your Lambda function.
+
+---
+
+### 3️⃣ Create Lambda Function
+
+1. Go to **Lambda Console**
+2. Click **Create function**
+3. Runtime: **Python 3.x**
+4. Attach the IAM Role created above
+
+---
+
+### 4️⃣ Add S3 Trigger
+
+1. In your Lambda, click **Add Trigger**
+2. Select **S3**
+3. Choose your upload bucket  
+4. Event type: `PUT` (Object Created)  
+5. Add trigger
+
+---
+
+### 5️⃣ Add Function Code
+
+Example `lambda_function.py`:
+
+```python
+import boto3
+from PIL import Image
+import io
+
+s3 = boto3.client('s3')
+
+def lambda_handler(event, context):
+    # Get bucket & object key from event
+    source_bucket = event['Records'][0]['s3']['bucket']['name']
+    object_key = event['Records'][0]['s3']['object']['key']
+    
+    # Download image from S3
+    response = s3.get_object(Bucket=source_bucket, Key=object_key)
+    image_content = response['Body'].read()
+    
+    # Open image
+    image = Image.open(io.BytesIO(image_content))
+    
+    # Resize image
+    resized_image = image.resize((200, 200))
+    
+    # Save resized image to bytes buffer
+    buffer = io.BytesIO()
+    resized_image.save(buffer, 'JPEG')
+    buffer.seek(0)
+    
+    # Upload resized image to another bucket
+    destination_bucket = 'my-resized-images-bucket'
+    s3.put_object(
+        Bucket=destination_bucket,
+        Key='resized-' + object_key,
+        Body=buffer,
+        ContentType='image/jpeg'
+    )
+    
+    return {
+        'statusCode': 200,
+        'body': 'Image resized and uploaded successfully!'
+    }
+```
+
+---
+
+### 6️⃣ Deploy & Test
+
+✅ Upload this code in **Lambda Console** or deploy via **ZIP**  
+✅ Upload an image to your S3 bucket  
+✅ Check the resized image in your destination bucket!
+
+---
+
+## 🧹 Cleanup
+
+Don’t forget to:
+- Delete buckets if not needed
+- Delete Lambda function
+- Remove IAM roles to avoid extra charges
+
+---
+
+## 📚 References
+
+- [AWS Lambda Documentation](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
+- [Pillow Python Library](https://pillow.readthedocs.io/en/stable/)
+
+---
+
+Happy Serverless Building! 🚀✨
