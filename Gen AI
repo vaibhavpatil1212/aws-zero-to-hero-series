@@ -1,0 +1,101 @@
+# 📚 Generative AI & Prompt Engineering — Beginner Syllabus
+
+Welcome to your **3-month journey** to learn **Generative AI & Prompt Engineering** — designed for students, freshers, or anyone curious about AI tools and careers.
+
+---
+
+## 📅 **Duration**
+**3 Months** (12 Weeks)  
+**Time Commitment:** 5–7 hours per week
+
+---
+
+## ✅ **Syllabus Outline**
+
+| Week | Topic | Key Focus |
+|------|---------------------------|--------------------------|
+| 1 | **Intro to AI & GenAI** | What is AI? What is Generative AI? Real-world examples |
+| 2 | **Large Language Models (LLMs)** | GPT, LLaMA, Mistral, how LLMs work |
+| 3 | **Popular Tools & Platforms** | OpenAI, Hugging Face, Google Gemini |
+| 4 | **Prompt Engineering Basics** | Parts of a prompt, instructions |
+| 5 | **Advanced Prompt Techniques** | Chain-of-Thought, system prompts |
+| 6 | **Tokens & Temperature** | Controlling output with parameters |
+| 7 | **Text-to-Image & Video** | DALL·E, MidJourney, Sora basics |
+| 8 | **Build a Custom Chatbot** | Simple chatbot with OpenAI API |
+| 9 | **Fine-Tuning Basics** | Hugging Face training demos |
+| 10 | **API Integration** | Python + API calls, mini-app |
+| 11 | **Ethics & Risks** | Bias, hallucinations, safe use |
+| 12 | **Careers & Capstone** | Jobs, portfolio, final project |
+
+---
+
+## ⚙️ **Practical Activities**
+
+- ✅ Experiment with ChatGPT, Claude, Gemini
+- ✅ Generate images with DALL·E or MidJourney
+- ✅ Use OpenAI Playground for prompt testing
+- ✅ Build simple Python API calls with OpenAI
+- ✅ Try fine-tuning on Hugging Face
+- ✅ Create a personal prompt portfolio
+
+---
+
+## 🌐 **Best Free Learning Resources**
+
+### 🎓 **Courses**
+- [ChatGPT Prompt Engineering for Developers — DeepLearning.AI](https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/)
+- [Generative AI for Everyone — DeepLearning.AI](https://www.deeplearning.ai/short-courses/generative-ai-for-everyone/)
+- [Intro to GenAI — Google Cloud](https://www.cloudskillsboost.google/course_templates/536)
+- [Hugging Face Course](https://huggingface.co/learn)
+- [OpenAI Cookbook (GitHub)](https://github.com/openai/openai-cookbook)
+
+### 🎥 **YouTube**
+- [DeepLearning.AI](https://www.youtube.com/@DeepLearningAI)
+- [Yannic Kilcher](https://www.youtube.com/@YannicKilcher)
+- [Two Minute Papers](https://www.youtube.com/@TwoMinutePapers)
+- [All About AI](https://www.youtube.com/@AllAboutAI)
+- [AI Explained](https://www.youtube.com/@AIExplained)
+
+---
+
+## 🧰 **Playgrounds & Tools**
+
+- [OpenAI Playground](https://platform.openai.com/playground)
+- [Hugging Face Spaces](https://huggingface.co/spaces)
+- [Google Colab](https://colab.research.google.com/)
+- [MidJourney](https://www.midjourney.com/) (Discord)
+
+---
+
+## 👥 **Communities**
+
+- [Hugging Face Forums](https://discuss.huggingface.co/)
+- [OpenAI Community](https://community.openai.com/)
+- [Reddit: r/LocalLLaMA](https://www.reddit.com/r/LocalLLaMA/)
+- [Reddit: r/MachineLearning](https://www.reddit.com/r/MachineLearning/)
+- [Reddit: r/StableDiffusion](https://www.reddit.com/r/StableDiffusion/)
+
+---
+
+## 🎯 **Capstone Project Ideas**
+
+- 🤖 Build an AI chatbot for FAQs  
+- 🖼️ Make an AI-generated storybook  
+- 📜 Create a collection of advanced prompts  
+- 🔗 Deploy a prompt-powered app on GitHub
+
+---
+
+## 🚀 **Tips to Succeed**
+
+✔️ **Practice daily:** Small prompts, big ideas  
+✔️ **Save your best:** Document prompts & results  
+✔️ **Showcase work:** Use GitHub, Notion, or a blog  
+✔️ **Stay updated:** Follow AI news & tools
+
+---
+
+**Happy learning!** ✨  
+_Your future in GenAI starts now._
+
+---
